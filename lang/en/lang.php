@@ -2,8 +2,8 @@
 
 return [
     'plugin' => [
-        'name' => 'Form Builder',
-        'description' => 'Create custom Front-end forms',
+        'name' => 'Mail Logs',
+        'description' => 'View mail messages with their recorded time and details.',
     ],
     'navigation' => [
         'mail_logs' => 'Mail Logs',

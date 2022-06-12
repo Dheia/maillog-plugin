@@ -1,0 +1,25 @@
+{
+    "name": "renatio/maillog-plugin",
+    "type": "october-plugin",
+    "description": "View mail messages with their recorded time and details.",
+    "homepage": "https://octobercms.com/plugin/renatio-maillog",
+    "keywords": [
+        "octobercms-plugin",
+        "octobercms",
+        "php",
+        "laravel",
+        "mail",
+        "log"
+    ],
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Michal Plodowski",
+            "email": "michal.plodowski@gmail.com"
+        }
+    ],
+    "require": {
+        "october/rain": "^3.0",
+        "composer/installers": "~1.0"
+    }
+}
