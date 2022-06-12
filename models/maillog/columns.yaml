@@ -1,0 +1,33 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    subject:
+        label: renatio.maillog::lang.field.subject
+        searchable: true
+
+    to:
+        label: renatio.maillog::lang.field.to
+        searchable: true
+
+    from:
+        label: renatio.maillog::lang.field.from
+        searchable: true
+
+    ip_address:
+        label: renatio.maillog::lang.field.ip_address
+        searchable: true
+
+    template:
+        label: renatio.maillog::lang.field.template
+        searchable: true
+
+    attachments_count:
+        label: renatio.maillog::lang.field.attachments
+        sortable: false
+
+    created_at:
+        label: renatio.maillog::lang.field.send_at
+        type: datetime

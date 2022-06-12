@@ -1,0 +1,21 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: renatio.maillog::lang.mail_log.name
+
+# Model Form Field configuration
+form: $/renatio/maillog/models/maillog/fields.yaml
+
+# Model Class name
+modelClass: Renatio\MailLog\Models\MailLog
+
+# Default redirect location
+defaultRedirect: renatio/maillog/maillogs
+
+# Preview page
+preview:
+    title: renatio.maillog::lang.mail_log.preview
+    redirect: renatio/maillog/maillogs/preview/:id
+    redirectClose: renatio/maillog/maillogs

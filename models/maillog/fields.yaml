@@ -1,0 +1,44 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    subject:
+        label: renatio.maillog::lang.field.subject
+
+    content_html:
+        label: renatio.maillog::lang.field.content_html
+        type: partial
+
+secondaryTabs:
+
+    defaultTab: renatio.maillog::lang.field.details
+
+    fields:
+
+        created_at:
+            label: renatio.maillog::lang.field.send_at
+            type: datepicker
+
+        from:
+            label: renatio.maillog::lang.field.from
+
+        to:
+            label: renatio.maillog::lang.field.to
+
+        cc:
+            label: renatio.maillog::lang.field.cc
+
+        bcc:
+            label: renatio.maillog::lang.field.bcc
+
+        template:
+            label: renatio.maillog::lang.field.template
+
+        attachments:
+            label: renatio.maillog::lang.field.attachments
+            type: partial
+
+        ip_address:
+            label: renatio.maillog::lang.field.ip_address

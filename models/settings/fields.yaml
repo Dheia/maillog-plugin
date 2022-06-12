@@ -1,0 +1,11 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    prune_logs_period:
+        label: renatio.maillog::lang.settings.prune_logs_period
+        comment: renatio.maillog::lang.settings.prune_logs_period_comment
+        type: number
+        span: left
