@@ -8,6 +8,8 @@ class LogEmail
 {
     public function handle($mailer, $view, $message)
     {
+        MailLog::unguard();
+
         MailLog::create([
             'content_html' => $message->getHtmlBody(),
             'subject' => $message->getSubject(),
@@ -16,7 +18,7 @@ class LogEmail
             'bcc' => $this->formatAddresses($message->getBcc()),
             'from' => $this->formatAddresses($message->getFrom()),
             'ip_address' => request()->ip(),
-            'template' => $view,
+            'template' => is_string($view) ? $view : null,
             'attachments' => $this->getAttachments($message),
         ]);
     }
