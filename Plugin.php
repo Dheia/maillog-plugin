@@ -40,7 +40,7 @@ class Plugin extends PluginBase
                 'order' => 950,
                 'keywords' => 'mail log',
                 'description' => 'renatio.maillog::lang.navigation.description',
-                'permissions' => ['system.access_logs'],
+                'permissions' => ['utilities.mail_logs'],
             ],
             'settings' => [
                 'label' => 'renatio.maillog::lang.settings.label',
@@ -50,7 +50,7 @@ class Plugin extends PluginBase
                 'class' => Settings::class,
                 'order' => 1000,
                 'keywords' => 'mail log settings',
-                'permissions' => ['system.access_logs'],
+                'permissions' => ['utilities.mail_logs_settings'],
             ],
         ];
     }
@@ -65,5 +65,19 @@ class Plugin extends PluginBase
         $schedule->command('model:prune', [
             '--model' => [MailLog::class],
         ])->daily();
+    }
+
+    public function registerPermissions()
+    {
+        return [
+            'utilities.mail_logs' => [
+                'tab' => 'Utilities',
+                'label' => 'renatio.maillog::lang.navigation.mail_logs',
+            ],
+            'utilities.mail_logs_settings' => [
+                'tab' => 'Utilities',
+                'label' => 'renatio.maillog::lang.settings.label',
+            ],
+        ];
     }
 }

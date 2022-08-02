@@ -12,7 +12,7 @@ use System\Classes\SettingsManager;
 
 class MailLogs extends Controller
 {
-    public $requiredPermissions = ['system.access_logs'];
+    public $requiredPermissions = ['utilities.mail_logs'];
 
     public $implement = [
         ListController::class,
