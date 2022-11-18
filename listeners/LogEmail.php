@@ -26,17 +26,13 @@ class LogEmail
     public function formatAddresses($addresses)
     {
         return collect($addresses)
-            ->map(function ($address) {
-                return $address->toString();
-            })
+            ->map(fn($address) => $address->toString())
             ->implode(', ');
     }
 
     protected function getAttachments($message)
     {
         return collect($message->getSymfonyMessage()->getAttachments())
-            ->map(function ($attachment) {
-                return $attachment->getFilename();
-            });
+            ->map(fn($attachment) => $attachment->getFilename());
     }
 }

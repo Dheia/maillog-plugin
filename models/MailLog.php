@@ -15,11 +15,7 @@ class MailLog extends Model
 
     public function getAttachmentsCountAttribute()
     {
-        if (! $this->attachments) {
-            return 0;
-        }
-
-        return count($this->attachments);
+        return $this->attachments ? count($this->attachments) : 0;
     }
 
     public function filterFields($fields)
@@ -33,9 +29,7 @@ class MailLog extends Model
 
     public function prunable()
     {
-        $prunePeriod = (int) Settings::get('prune_logs_period');
-
-        if (! $prunePeriod) {
+        if (! ($prunePeriod = (int) Settings::get('prune_logs_period'))) {
             exit;
         }
 
