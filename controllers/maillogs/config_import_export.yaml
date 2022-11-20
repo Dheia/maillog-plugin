@@ -1,0 +1,8 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    title: renatio.maillog::lang.mail_log.export
+    modelClass: Renatio\MailLog\Models\MailLogExport
+    list: $/renatio/maillog/models/maillog/export_columns.yaml

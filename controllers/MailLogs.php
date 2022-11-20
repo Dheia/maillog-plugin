@@ -3,6 +3,7 @@
 namespace Renatio\MailLog\Controllers;
 
 use Backend\Behaviors\FormController;
+use Backend\Behaviors\ImportExportController;
 use Backend\Behaviors\ListController;
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
@@ -18,13 +19,14 @@ class MailLogs extends Controller
     public $implement = [
         ListController::class,
         FormController::class,
+        ImportExportController::class,
     ];
 
     public $listConfig = 'config_list.yaml';
 
     public $formConfig = 'config_form.yaml';
 
-    public $bodyClass = 'compact-container';
+    public $importExportConfig = 'config_import_export.yaml';
 
     public function __construct()
     {
@@ -33,6 +35,13 @@ class MailLogs extends Controller
         BackendMenu::setContext('October.System', 'system', 'settings');
 
         SettingsManager::setContext('Renatio.MailLog', 'maillogs');
+    }
+
+    public function preview($recordId, $context = null)
+    {
+        $this->bodyClass = 'compact-container';
+
+        return $this->asExtension('FormController')->preview($recordId, $context);
     }
 
     public function listExtendColumns($list)

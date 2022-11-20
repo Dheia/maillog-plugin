@@ -8,12 +8,12 @@ columns:
         label: renatio.maillog::lang.field.subject
         searchable: true
 
-    to:
-        label: renatio.maillog::lang.field.to
-        searchable: true
-
     from:
         label: renatio.maillog::lang.field.from
+        searchable: true
+
+    to:
+        label: renatio.maillog::lang.field.to
         searchable: true
 
     ip_address:

@@ -7,6 +7,11 @@
         <?= e(trans('backend::lang.list.refresh')) ?>
     </a>
 
+    <a href="<?= Backend::url('renatio/maillog/maillogs/export') ?>"
+       class="btn btn-default oc-icon-download">
+        <?= e(trans('renatio.maillog::lang.mail_log.export')) ?>
+    </a>
+
     <a
         href="javascript:;"
         data-request="onEmptyLog"

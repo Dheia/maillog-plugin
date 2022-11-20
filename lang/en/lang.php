@@ -15,6 +15,7 @@ return [
         'empty_link' => 'Empty Mail Log',
         'preview' => 'View Mail Log',
         'manage' => 'Manage Mail Logs',
+        'export' => 'Export',
     ],
     'field' => [
         'subject' => 'Subject',
@@ -33,6 +34,9 @@ return [
         'first_opened_at' => 'First Opened',
         'last_opened_at' => 'Last Opened',
         'created_at' => 'Created at',
+        'updated_at' => 'Updated at',
+        'hash' => 'Hash',
+        'id' => 'ID',
     ],
     'settings' => [
         'label' => 'Mail Log Settings',

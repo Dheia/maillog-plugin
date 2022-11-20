@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    id: renatio.maillog::lang.field.id
+    hash: renatio.maillog::lang.field.hash
+    subject: renatio.maillog::lang.field.subject
+    from: renatio.maillog::lang.field.from
+    to: renatio.maillog::lang.field.to
+    cc: renatio.maillog::lang.field.cc
+    bcc: renatio.maillog::lang.field.bcc
+    attachments: renatio.maillog::lang.field.attachments
+    ip_address: renatio.maillog::lang.field.ip_address
+    template: renatio.maillog::lang.field.template
+    content_html: renatio.maillog::lang.field.content_html
+    first_opened_at: renatio.maillog::lang.field.first_opened_at
+    last_opened_at: renatio.maillog::lang.field.last_opened_at
+    opened: renatio.maillog::lang.field.opened
+    sent_at: renatio.maillog::lang.field.sent_at
+    created_at: renatio.maillog::lang.field.created_at
+    updated_at: renatio.maillog::lang.field.updated_at
