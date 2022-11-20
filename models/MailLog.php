@@ -2,6 +2,7 @@
 
 namespace Renatio\MailLog\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\MassPrunable;
 use October\Rain\Database\Model;
 
@@ -37,5 +38,22 @@ class MailLog extends Model
         }
 
         return static::where('created_at', '<=', now()->subDays($prunePeriod));
+    }
+
+    public function scopeCreatedAtFilter($query, $scope)
+    {
+        $this->scopeDateFilter($query, $scope, 'created_at');
+    }
+
+    public function scopeDateFilter($query, $scope, $column)
+    {
+        match ($scope->condition) {
+            'equals' => $query->whereDate($column, Carbon::parse($scope->value)),
+            'after' => $query->whereDate($column, '>=', Carbon::parse($scope->value)),
+            'before' => $query->whereDate($column, '<=', Carbon::parse($scope->value)),
+            default => $query
+                ->whereDate($column, '>=', Carbon::parse($scope->after))
+                ->whereDate($column, '<=', Carbon::parse($scope->before)),
+        };
     }
 }
