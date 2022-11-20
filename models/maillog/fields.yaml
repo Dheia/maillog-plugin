@@ -4,6 +4,10 @@
 
 fields:
 
+    _scoreboard:
+        type: partial
+        path: field_scoreboard
+
     subject:
         label: renatio.maillog::lang.field.subject
 
