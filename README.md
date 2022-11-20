@@ -57,7 +57,7 @@ Plugin register new Settings menu item in Settings -> Logs -> Mail Log Settings
 
 ### Prune period in days
 
-This will prune records older than specified number of days.
+This will prune records older than specified number of days. The default value is 30 days.
 
 > **Important note:** For scheduled tasks to operate correctly you must set up the
 > scheduler: https://docs.octobercms.com/3.x/setup/scheduler.html
@@ -66,4 +66,4 @@ This will prune records older than specified number of days.
 
 When this is feature is enabled, plugin will add invisible image to sent email to track when user opens it.
 
-This is disabled by default for privacy concern.
+This is enabled by default.

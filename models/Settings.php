@@ -19,4 +19,11 @@ class Settings extends Model
     public $rules = [
         'prune_logs_period' => ['integer', 'nullable'],
     ];
+
+    public function initSettingsData()
+    {
+        $this->prune_logs_period = 30;
+
+        $this->track_opens = true;
+    }
 }
