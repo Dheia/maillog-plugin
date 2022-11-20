@@ -46,4 +46,11 @@ return [
         'track_opens' => 'Track when user opens email',
         'track_opens_comment' => 'Add invisible image to sent email to track when user opens it.',
     ],
+    'permissions' => [
+        'mail_logs' => 'Access Mail Logs',
+        'mail_logs_delete' => 'Delete Mail Logs',
+        'mail_logs_truncate' => 'Truncate Mail Logs',
+        'mail_logs_export' => 'Export Mail Logs',
+        'mail_logs_settings' => 'Access Mail Logs Settings',
+    ],
 ];

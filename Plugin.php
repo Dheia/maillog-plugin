@@ -75,11 +75,23 @@ class Plugin extends PluginBase
         return [
             'utilities.mail_logs' => [
                 'tab' => 'Utilities',
-                'label' => 'renatio.maillog::lang.navigation.mail_logs',
+                'label' => 'renatio.maillog::lang.permissions.mail_logs',
+            ],
+            'utilities.mail_logs.delete' => [
+                'tab' => 'Utilities',
+                'label' => 'renatio.maillog::lang.permissions.mail_logs_delete',
+            ],
+            'utilities.mail_logs.truncate' => [
+                'tab' => 'Utilities',
+                'label' => 'renatio.maillog::lang.permissions.mail_logs_truncate',
+            ],
+            'utilities.mail_logs.export' => [
+                'tab' => 'Utilities',
+                'label' => 'renatio.maillog::lang.permissions.mail_logs_export',
             ],
             'utilities.mail_logs_settings' => [
                 'tab' => 'Utilities',
-                'label' => 'renatio.maillog::lang.settings.label',
+                'label' => 'renatio.maillog::lang.permissions.mail_logs_settings',
             ],
         ];
     }
