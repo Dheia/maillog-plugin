@@ -8,6 +8,7 @@ use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
 use October\Rain\Support\Facades\Flash;
 use Renatio\MailLog\Models\MailLog;
+use Renatio\MailLog\Models\Settings;
 use System\Classes\SettingsManager;
 
 class MailLogs extends Controller
@@ -32,6 +33,22 @@ class MailLogs extends Controller
         BackendMenu::setContext('October.System', 'system', 'settings');
 
         SettingsManager::setContext('Renatio.MailLog', 'maillogs');
+    }
+
+    public function listExtendColumns($list)
+    {
+        if (! Settings::get('track_opens')) {
+            $list->removeColumn('first_opened_at');
+            $list->removeColumn('last_opened_at');
+            $list->removeColumn('opened');
+        }
+    }
+
+    public function formExtendFields($form)
+    {
+        collect(['cc', 'bcc', 'attachments'])
+            ->filter(fn($field) => ! $form->model->$field)
+            ->each(fn($field) => $form->removeField($field));
     }
 
     public function index_onRefresh()

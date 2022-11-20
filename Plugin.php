@@ -5,6 +5,7 @@ namespace Renatio\MailLog;
 use Backend\Facades\Backend;
 use Illuminate\Database\Console\PruneCommand;
 use Illuminate\Support\Facades\Event;
+use Renatio\MailLog\Listeners\EmailSent;
 use Renatio\MailLog\Listeners\LogEmail;
 use Renatio\MailLog\Models\MailLog;
 use Renatio\MailLog\Models\Settings;
@@ -20,13 +21,14 @@ class Plugin extends PluginBase
             'description' => 'renatio.maillog::lang.plugin.description',
             'author' => 'Renatio',
             'icon' => 'octo-icon-mail-messages',
-            'homepage' => '', // todo
+            'homepage' => 'https://octobercms.com/plugin/renatio-maillog',
         ];
     }
 
     public function boot()
     {
-        Event::listen('mailer.send', LogEmail::class);
+        Event::listen('mailer.prepareSend', LogEmail::class);
+        Event::listen('mailer.send', EmailSent::class);
     }
 
     public function registerSettings()
@@ -51,6 +53,7 @@ class Plugin extends PluginBase
                 'order' => 1000,
                 'keywords' => 'mail log settings',
                 'permissions' => ['utilities.mail_logs_settings'],
+                'size' => 'small',
             ],
         ];
     }

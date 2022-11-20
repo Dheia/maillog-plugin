@@ -21,6 +21,11 @@ class CreateLogsTable extends Migration
             $table->longText('content_html')->nullable();
             $table->longText('attachments')->nullable();
             $table->string('ip_address')->nullable();
+            $table->timestamp('first_opened_at')->nullable();
+            $table->timestamp('last_opened_at')->nullable();
+            $table->unsignedSmallInteger('opened')->default(0);
+            $table->timestamp('sent_at')->nullable();
+            $table->string('hash', 36)->nullable();
             $table->timestamps();
         });
     }

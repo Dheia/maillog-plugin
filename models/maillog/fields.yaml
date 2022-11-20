@@ -17,8 +17,8 @@ secondaryTabs:
 
     fields:
 
-        created_at:
-            label: renatio.maillog::lang.field.send_at
+        sent_at:
+            label: renatio.maillog::lang.field.sent_at
             type: datepicker
 
         from:

@@ -27,7 +27,27 @@ columns:
     attachments_count:
         label: renatio.maillog::lang.field.attachments
         sortable: false
+        align: center
+
+    first_opened_at:
+        label: renatio.maillog::lang.field.first_opened_at
+        type: timesince
+
+    last_opened_at:
+        label: renatio.maillog::lang.field.last_opened_at
+        type: timesince
+        invisible: true
+
+    opened:
+        label: renatio.maillog::lang.field.opened
+        align: center
+
+    is_sent:
+        label: renatio.maillog::lang.field.is_sent
+        type: switch
+        align: center
+        sortable: false
 
     created_at:
-        label: renatio.maillog::lang.field.send_at
+        label: renatio.maillog::lang.field.created_at
         type: datetime

@@ -8,4 +8,8 @@ fields:
         label: renatio.maillog::lang.settings.prune_logs_period
         comment: renatio.maillog::lang.settings.prune_logs_period_comment
         type: number
-        span: left
+
+    track_opens:
+        label: renatio.maillog::lang.settings.track_opens
+        comment: renatio.maillog::lang.settings.track_opens_comment
+        type: switch

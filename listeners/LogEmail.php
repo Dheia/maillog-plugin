@@ -3,6 +3,7 @@
 namespace Renatio\MailLog\Listeners;
 
 use Renatio\MailLog\Models\MailLog;
+use Renatio\MailLog\Models\Settings;
 
 class LogEmail
 {
@@ -10,7 +11,7 @@ class LogEmail
     {
         MailLog::unguard();
 
-        MailLog::create([
+        $maiLog = MailLog::create([
             'content_html' => $message->getHtmlBody(),
             'subject' => $message->getSubject(),
             'to' => $this->formatAddresses($message->getTo()),
@@ -21,6 +22,16 @@ class LogEmail
             'template' => is_string($view) ? $view : null,
             'attachments' => $this->getAttachments($message),
         ]);
+
+        $message->getHeaders()->addTextHeader('X-LOG-HASH', $maiLog->hash);
+
+        if (Settings::get('track_opens')) {
+            $symfonyMessage = $message->getSymfonyMessage();
+
+            $symfonyMessage->setBody(
+                $symfonyMessage->html($symfonyMessage->getHtmlBody().$this->invisibleImage($maiLog->hash))->getBody()
+            );
+        }
     }
 
     public function formatAddresses($addresses)
@@ -34,5 +45,10 @@ class LogEmail
     {
         return collect($message->getSymfonyMessage()->getAttachments())
             ->map(fn($attachment) => $attachment->getFilename());
+    }
+
+    protected function invisibleImage($hash)
+    {
+        return '<img src="'.url('/track/opened/'.$hash).'" style="display:none; width:0; height:0;" />';
     }
 }

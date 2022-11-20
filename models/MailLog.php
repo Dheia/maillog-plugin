@@ -13,18 +13,21 @@ class MailLog extends Model
 
     protected $jsonable = ['attachments'];
 
+    protected $dates = ['first_opened_at', 'last_opened_at', 'sent_at'];
+
+    public function beforeCreate()
+    {
+        $this->hash = (string) str()->uuid();
+    }
+
     public function getAttachmentsCountAttribute()
     {
         return $this->attachments ? count($this->attachments) : 0;
     }
 
-    public function filterFields($fields)
+    public function getIsSentAttribute()
     {
-        foreach (['cc', 'bcc', 'attachments'] as $field) {
-            if (empty($fields->{$field}->value)) {
-                $fields->{$field}->hidden = true;
-            }
-        }
+        return ! ! $this->sent_at;
     }
 
     public function prunable()
