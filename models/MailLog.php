@@ -5,6 +5,7 @@ namespace Renatio\MailLog\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\MassPrunable;
 use October\Rain\Database\Model;
+use System\Models\MailTemplate;
 
 class MailLog extends Model
 {
@@ -38,6 +39,11 @@ class MailLog extends Model
         }
 
         return static::where('created_at', '<=', now()->subDays($prunePeriod));
+    }
+
+    public function getTemplateOptions()
+    {
+        return MailTemplate::orderBy('code')->lists('code', 'code');
     }
 
     public function scopeCreatedAtFilter($query, $scope)

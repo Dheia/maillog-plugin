@@ -3,6 +3,13 @@
 # ===================================
 scopes:
 
+    template:
+        label: renatio.maillog::lang.field.template
+        type: group
+        modelClass: Renatio\MailLog\Models\MailLog
+        options: getTemplateOptions
+        conditions: template in (:value)
+
     is_sent:
         label: renatio.maillog::lang.field.is_sent
         type: switch

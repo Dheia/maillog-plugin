@@ -19,3 +19,6 @@ preview:
     title: renatio.maillog::lang.mail_log.preview
     redirect: renatio/maillog/maillogs/preview/:id
     redirectClose: renatio/maillog/maillogs
+
+permissions:
+    modelPreview: utilities.mail_logs.preview

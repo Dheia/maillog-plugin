@@ -28,6 +28,7 @@ class Plugin extends PluginBase
     public function boot()
     {
         Event::listen('mailer.prepareSend', LogEmail::class);
+
         Event::listen('mailer.send', EmailSent::class);
     }
 
@@ -76,6 +77,10 @@ class Plugin extends PluginBase
             'utilities.mail_logs' => [
                 'tab' => 'Utilities',
                 'label' => 'renatio.maillog::lang.permissions.mail_logs',
+            ],
+            'utilities.mail_logs.preview' => [
+                'tab' => 'Utilities',
+                'label' => 'renatio.maillog::lang.permissions.mail_logs_preview',
             ],
             'utilities.mail_logs.delete' => [
                 'tab' => 'Utilities',

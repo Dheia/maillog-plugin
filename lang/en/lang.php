@@ -48,6 +48,7 @@ return [
     ],
     'permissions' => [
         'mail_logs' => 'Access Mail Logs',
+        'mail_logs_preview' => 'Preview Mail Logs',
         'mail_logs_delete' => 'Delete Mail Logs',
         'mail_logs_truncate' => 'Truncate Mail Logs',
         'mail_logs_export' => 'Export Mail Logs',
