@@ -1,5 +1,11 @@
 # Mail Log Plugin
 
+**Demo URL:** https://october-demo.renatio.com/backend/backend/auth/signin
+
+**Login:** maillog
+
+**Password:** maillog
+
 View mail messages with their recorded time and details.
 
 Plugin automatically logs all outgoing emails send through your October CMS project after installation. This is very useful when you need to check user received important email or just check if emails are send successfully.
