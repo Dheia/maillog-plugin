@@ -4,12 +4,15 @@ namespace Renatio\MailLog\Listeners;
 
 use Renatio\MailLog\Models\MailLog;
 use Renatio\MailLog\Models\Settings;
+use System\Models\MailTemplate;
 
 class LogEmail
 {
     public function handle($mailer, $view, $message)
     {
         MailLog::unguard();
+
+        $mailTemplates = MailTemplate::listAllTemplates();
 
         $maiLog = MailLog::create([
             'content_html' => $message->getHtmlBody(),
@@ -19,7 +22,7 @@ class LogEmail
             'bcc' => $this->formatAddresses($message->getBcc()),
             'from' => $this->formatAddresses($message->getFrom()),
             'ip_address' => request()->ip(),
-            'template' => is_string($view) ? $view : null,
+            'template' => array_key_exists($view, $mailTemplates) ? $view : null,
             'attachments' => $this->getAttachments($message),
         ]);
 
