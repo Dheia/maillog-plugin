@@ -2,6 +2,7 @@
 
 namespace Renatio\MailLog\Listeners;
 
+use ReflectionObject;
 use Renatio\MailLog\Models\MailLog;
 use Renatio\MailLog\Models\Settings;
 use System\Models\MailTemplate;
@@ -47,7 +48,18 @@ class LogEmail
     protected function getAttachments($message)
     {
         return collect($message->getSymfonyMessage()->getAttachments())
-            ->map(fn($attachment) => $attachment->getFilename());
+            ->map(function ($attachment) {
+                if (method_exists($attachment, 'getFilename')) {
+                    return $attachment->getFilename();
+                }
+
+                // todo remove when require php@8.1
+                $reflection = new ReflectionObject($attachment);
+                $filename = $reflection->getProperty('filename');
+                $filename->setAccessible(true);
+
+                return $filename->getValue($attachment);
+            });
     }
 
     protected function invisibleImage($hash)

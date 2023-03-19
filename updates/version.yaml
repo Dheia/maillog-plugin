@@ -4,3 +4,4 @@ v1.0.1:
 v1.0.2: Docs.
 v1.0.3: Add template filter. Improve permissions.
 v1.0.4: Only log template name for registered mail templates.
+v1.0.5: Fix logging attachments for php@8.0.
