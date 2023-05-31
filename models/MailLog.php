@@ -57,6 +57,7 @@ class MailLog extends Model
             'equals' => $query->whereDate($column, Carbon::parse($scope->value)),
             'after' => $query->whereDate($column, '>=', Carbon::parse($scope->value)),
             'before' => $query->whereDate($column, '<=', Carbon::parse($scope->value)),
+            'notEquals' => $query->whereDate($column, '<>', Carbon::parse($scope->value)),
             default => $query
                 ->whereDate($column, '>=', Carbon::parse($scope->after))
                 ->whereDate($column, '<=', Carbon::parse($scope->before)),
